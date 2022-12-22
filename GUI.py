@@ -3,7 +3,6 @@ from tkinter import Canvas, Tk
 
 class Station:
 
-
     def __init__(self, xcoor, ycoor, color):
         self.size = 8
         self.xcoor_left = xcoor - self.size
@@ -22,12 +21,13 @@ class TrainCanvas(Canvas):
         self.trains = []  # keeps track of Ball objects representation on the Canvas
 
     def add_stations(self, list_stations):
-        print("yes")
         for i in range(len(list_stations)):
             station = Station(list_stations[i][0], list_stations[i][1], list_stations[i][2])
             self.stations.append(
                 self.create_oval(station.xcoor_left, station.ycoor_bottom, station.xcoor_right, station.ycoor_top,
                                  outline=station.color, width="3"))
+
+        # self.delete(self.stations[1])
 
 
 if __name__ == '__main__':
