@@ -1,4 +1,6 @@
 #include "station_locations.h"
+#include "train_locations.h"
+#include "visualization.h"
 #include <iostream>
 
 int main() {
@@ -15,4 +17,19 @@ int main() {
 
         advance(it, 1);
     }
+
+    // TrainLocations tr;
+
+    // std::list<Train> listTrains = tr.returnJsonTrains();
+
+    // std::list<Train>::iterator it = listTrains.begin();
+
+    // for (int i = 0; i < listTrains.size(); i++) {
+
+    //     std::cout << "TrainID: " << it->getTrainID() << std::endl;
+    //     std::cout << "Latitude: " << it->getLatitude() << std::endl;
+    //     std::cout << "Longitude: " << it->getLongitude() << std::endl;
+
+    //     advance(it, 1);
+    // }
 }

@@ -9,6 +9,7 @@ file(GLOB SOURCES "src/*.cpp")
 
 include(FetchContent)
 
+# CPR
 FetchContent_Declare(
     cpr
     GIT_REPOSITORY https://github.com/libcpr/cpr.git
@@ -16,6 +17,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(cpr)
 
+# JsonCpp
 FetchContent_Declare(
   jsoncpp
   GIT_REPOSITORY https://github.com/open-source-parsers/jsoncpp.git
@@ -27,5 +29,6 @@ include_directories(include)
 
 add_executable(MBTATracker ${SOURCES})
 
+# Linking libraries
 target_link_libraries(MBTATracker PRIVATE cpr::cpr)
 target_link_libraries(MBTATracker PRIVATE jsoncpp_lib)
