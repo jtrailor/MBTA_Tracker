@@ -5,7 +5,7 @@ project(MBTATracker)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-file(GLOB SOURCES "src/*.cpp")
+file(GLOB SOURCES "src/*.cpp" "src/glad/glad.c")
 
 include(FetchContent)
 
@@ -25,10 +25,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(jsoncpp)
 
+# Include all header files
 include_directories(include)
+
+# Add libraries
+link_directories(lib)
 
 add_executable(MBTATracker ${SOURCES})
 
-# Linking libraries
-target_link_libraries(MBTATracker PRIVATE cpr::cpr)
-target_link_libraries(MBTATracker PRIVATE jsoncpp_lib)
+# Link libraries to executable
+target_link_libraries(MBTATracker PRIVATE cpr::cpr jsoncpp_lib glfw.3)

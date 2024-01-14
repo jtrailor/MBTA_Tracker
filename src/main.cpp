@@ -4,19 +4,21 @@
 #include <iostream>
 
 int main() {
-    StationLocations sl;
+    // StationLocations sl;
 
-    std::list<Station> listStations = sl.returnJsonStations();
+    // std::list<Station> listStations = sl.returnJsonStations();
 
-    std::list<Station>::iterator it = listStations.begin();
+    // std::list<Station>::iterator it = listStations.begin();
 
-    for (int i = 0; i < listStations.size(); i++) {
+    // for (int i = 0; i < listStations.size(); i++) {
 
-        std::cout << "Color: " << it->getLineColor() << std::endl;
-        std::cout << "Description : " << it->getDescription() << std::endl;
+    //     std::cout << "Color: " << it->getLineColor() << std::endl;
+    //     std::cout << "Description : " << it->getDescription() << std::endl;
 
-        advance(it, 1);
-    }
+    //     advance(it, 1);
+    // }
+
+    createWindow();
 
     // TrainLocations tr;
 
