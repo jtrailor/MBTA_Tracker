@@ -18,7 +18,7 @@ int main() {
     //     advance(it, 1);
     // }
 
-    createWindow();
+    runProgram();
 
     // TrainLocations tr;
 

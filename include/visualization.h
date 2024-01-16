@@ -2,10 +2,11 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
+#include <stdlib.h>
 
 #ifndef VISUALIZATION_H
 #define VISUALIZATION_H
 
-int createWindow();
+int runProgram();
 
 #endif // VISUALIZATION_H
