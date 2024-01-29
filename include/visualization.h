@@ -1,8 +1,9 @@
+#include <cmath>
 #include <glad/glad.h>
-#include <GLFW/glfw3.h>
-
 #include <iostream>
-#include <stdlib.h>
+#include <string>
+#include <vector>
+#include <GLFW/glfw3.h>
 
 #ifndef VISUALIZATION_H
 #define VISUALIZATION_H
