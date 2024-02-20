@@ -44,3 +44,47 @@ std::list<Station> StationLocations::returnJsonStations() {
     Json::Value stationsJson = obtainJsonStations();
     return getListStations(stationsJson);
 };
+
+void StationLocations::getMinMaxStationLatLongs() {
+    std::list<Station> listStations = returnJsonStations();
+
+    double minLat, minLong, maxLat, maxLong, currentLat, currentLong;
+    std::string minLatStation, minLongStation, maxLatStation, maxLongStation,
+        stationName;
+
+    minLat = INFINITY;
+    maxLat = -INFINITY;
+    minLong = INFINITY;
+    maxLong = -INFINITY;
+
+    for (const Station& station : listStations) {
+        currentLat = station.getLatitude();
+        currentLong = station.getLongitude();
+        stationName = station.getDescription();
+
+        if (currentLat > maxLat) {
+            maxLat = currentLat;
+            maxLatStation = stationName;
+        }
+        if (currentLat < minLat) {
+            minLat = currentLat;
+            minLatStation = stationName;
+        }
+        if (currentLong > maxLong) {
+            maxLong = currentLong;
+            maxLongStation = stationName;
+        }
+        if (currentLong < minLong) {
+            minLong = currentLong;
+            minLongStation = stationName;
+        }
+    }
+    std::cout << "Max Lat: " << maxLat << " Station: " << maxLatStation
+              << std::endl;
+    std::cout << "Min Lat: " << minLat << " Station: " << minLatStation
+              << std::endl;
+    std::cout << "Max Long: " << maxLong << " Station: " << maxLongStation
+              << std::endl;
+    std::cout << "Min Long: " << minLong << " Station: " << minLongStation
+              << std::endl;
+};

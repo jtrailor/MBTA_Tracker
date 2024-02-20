@@ -15,6 +15,8 @@ class StationLocations {
 
     std::list<Station> returnJsonStations();
 
+    void getMinMaxStationLatLongs();
+
   private:
     Json::Value obtainJsonStations();
 

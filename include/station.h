@@ -10,7 +10,11 @@ class Station {
     Station(std::string stationName, std::string description,
             std::string latitude, std::string longitude);
 
-    std::string getDescription();
+    double getLatitude() const;
+
+    double getLongitude() const;
+
+    std::string getDescription() const;
 
     std::string getLineColor();
 

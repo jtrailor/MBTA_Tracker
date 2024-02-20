@@ -45,12 +45,30 @@ void set2DRendering() {
 
 void drawCircle(GLfloat x, GLfloat y, GLfloat radius) {
     glBegin(GL_TRIANGLE_FAN);
-    glVertex2f(x, y); // Center of circle
     for (int i = 0; i <= CIRCLE_SEGMENTS; i++) {
         GLfloat angle = 2.0f * M_PI * float(i) / float(CIRCLE_SEGMENTS);
         GLfloat dx = radius * cosf(angle);
         GLfloat dy = radius * sinf(angle);
         glVertex2f(x + dx, y + dy);
+    }
+    glEnd();
+}
+
+void drawHollowCircle(GLfloat x, GLfloat y, GLfloat radius, GLfloat lineWidth) {
+    GLfloat outerRadius = radius + lineWidth / 2;
+    GLfloat innerRadius = radius - lineWidth / 2;
+
+    glBegin(GL_TRIANGLE_STRIP);
+    for (int i = 0; i <= CIRCLE_SEGMENTS; ++i) {
+        GLfloat angle = 2.0f * M_PI * i / CIRCLE_SEGMENTS;
+
+        GLfloat outerX = x + outerRadius * cosf(angle);
+        GLfloat outerY = y + outerRadius * sinf(angle);
+        glVertex2f(outerX, outerY);
+
+        GLfloat innerX = x + innerRadius * cosf(angle);
+        GLfloat innerY = y + innerRadius * sinf(angle);
+        glVertex2f(innerX, innerY);
     }
     glEnd();
 }
@@ -74,13 +92,9 @@ int runProgram() {
         glClear(GL_COLOR_BUFFER_BIT);
 
         glColor3f(1.0f, 0.0f, 0.0f);
-        drawCircle(200, 300, 100);
+        drawCircle(200, 300, 25);
 
-        glColor3f(0.0f, 1.0f, 0.0f);
-        drawCircle(400, 300, 100);
-
-        glColor3f(0.0f, 0.0f, 1.0f);
-        drawCircle(600, 300, 100);
+        drawHollowCircle(400, 500, 100, 10);
 
         glfwSwapBuffers(window);
 

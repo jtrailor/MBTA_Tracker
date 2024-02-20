@@ -5,7 +5,11 @@ Station::Station(std::string stationName, std::string description,
     : stationName(stationName), description(description), latitude(latitude),
       longitude(longitude){};
 
-std::string Station::getDescription() { return description; }
+double Station::getLatitude() const { return std::stod(latitude); }
+
+double Station::getLongitude() const { return std::stod(longitude); }
+
+std::string Station::getDescription() const { return description; }
 
 std::string Station::getLineColor() {
     std::string DELIMITER = " - ";
