@@ -6,7 +6,13 @@
 int main() {
     StationLocations sl;
 
-    sl.getMinMaxStationLatLongs();
+    // sl.getMinMaxStationLatLongs();
 
-    // runProgram();
+    std::list<Station> locations = sl.returnJsonStations();
+
+    for (Station station : locations) {
+        station.print();
+    }
+
+    runProgram();
 }

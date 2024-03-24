@@ -92,7 +92,7 @@ int runProgram() {
         glClear(GL_COLOR_BUFFER_BIT);
 
         glColor3f(1.0f, 0.0f, 0.0f);
-        drawCircle(200, 300, 25);
+        drawCircle(50, 50, 25);
 
         drawHollowCircle(400, 500, 100, 10);
 

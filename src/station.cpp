@@ -3,7 +3,8 @@
 Station::Station(std::string stationName, std::string description,
                  std::string latitude, std::string longitude)
     : stationName(stationName), description(description), latitude(latitude),
-      longitude(longitude){};
+      longitude(longitude),
+      normalizedCoordinate(getLatitude(), getLongitude()){};
 
 double Station::getLatitude() const { return std::stod(latitude); }
 
@@ -38,4 +39,17 @@ std::string Station::checkValidLine(const std::string& lineColor) {
     } else {
         return UNKNOWN_LINE;
     }
+}
+
+void Station::print() const {
+    std::cout << "Station name: " << stationName << std::endl;
+    std::cout << "Description: " << description << std::endl;
+    std::cout << "Latitude: " << latitude << std::endl;
+    std::cout << "Longitude: " << longitude << std::endl;
+    std::cout << "Normalized Latitude: "
+              << std::to_string(normalizedCoordinate.getNormalizedLatitude())
+              << std::endl;
+    std::cout << "Normalized Longitude: "
+              << std::to_string(normalizedCoordinate.getNormalizedLongitude())
+              << std::endl;
 }

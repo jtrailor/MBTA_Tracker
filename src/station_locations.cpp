@@ -21,6 +21,8 @@ Json::Value StationLocations::obtainJsonStations() {
             return root["data"];
         }
     }
+
+    return root;
 };
 
 std::list<Station>
