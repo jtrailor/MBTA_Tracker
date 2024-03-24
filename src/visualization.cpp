@@ -1,6 +1,6 @@
 #include "visualization.h"
 
-const int CIRCLE_SEGMENTS = 360; // Number of segments used to draw each circle
+const int CIRCLE_SEGMENTS = 360;  // Number of segments used to draw each circle
 
 int initializeGLFW() {
     if (!glfwInit()) {
@@ -38,7 +38,7 @@ int initializeGLAD() {
 void set2DRendering() {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(0.0, 800, 600, 0.0, -1, 1); // Left 0, Right 800, Bottom 600, Top 0
+    glOrtho(0.0, 800, 600, 0.0, -1, 1);  // Left 0, Right 800, Bottom 600, Top 0
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 }
@@ -73,6 +73,37 @@ void drawHollowCircle(GLfloat x, GLfloat y, GLfloat radius, GLfloat lineWidth) {
     glEnd();
 }
 
+void colorSetter(LineColor lineColor) {
+    float red = 0;
+    float green = 0;
+    float blue = 0;
+
+    switch (lineColor) {
+        case LineColor::red:
+            red = 1;
+            break;
+        case LineColor::orange:
+            red = 1;
+            green = 0.5;
+            break;
+        case LineColor::green:
+            green = 1;
+            break;
+        case LineColor::blue:
+            blue = 1;
+            break;
+        case LineColor::silver:
+            red = 0.75;
+            green = 0.75;
+            blue = 0.75;
+            break;
+        case LineColor::unknown:
+            break;
+    }
+
+    glColor3f(red, green, blue);
+}
+
 int runProgram() {
     GLFWwindow* window;
 
@@ -88,11 +119,10 @@ int runProgram() {
 
     // Main loop
     while (!glfwWindowShouldClose(window)) {
-        glClearColor(1.0f, 1.0f, 1.0f, 1.0f); // Background white
+        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);  // Background white
         glClear(GL_COLOR_BUFFER_BIT);
 
         glColor3f(1.0f, 0.0f, 0.0f);
-        drawCircle(50, 50, 25);
 
         drawHollowCircle(400, 500, 100, 10);
 

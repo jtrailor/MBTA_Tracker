@@ -2,6 +2,7 @@
 #include <string.h>
 #include <unordered_set>
 
+#include "constants.h"
 #include "coordinate.h"
 
 #ifndef STATION_H
@@ -18,17 +19,23 @@ class Station {
 
     std::string getDescription() const;
 
-    std::string getLineColor();
+    LineColor getLineColor() const;
+
+    LineColor extractLineColor();
 
     void print() const;
 
   private:
-    std::string checkValidLine(const std::string& lineColor);
+    LineColor checkValidLine(const std::string& lineColor) const;
+
+    LineColor convertStringLineColor(const std::string& lineColor) const;
 
     std::string stationName;
     std::string description;
     std::string latitude;
     std::string longitude;
+
+    LineColor lineColor;
 
     Coordinate normalizedCoordinate;
 };
